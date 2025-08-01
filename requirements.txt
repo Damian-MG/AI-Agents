@@ -1,7 +1,7 @@
-fastmcp
-ollama
-asyncio
-nest_asyncio
-llama-index
-llama-index-llms-ollama
-llama-index-tools-mcp
+fastmcp==2.10.6
+ollama==0.5.1
+asyncio==3.4.3
+nest_asyncio==1.6.0
+llama-index==0.12.52
+llama-index-llms-ollama==0.6.2
+llama-index-tools-mcp==0.2.6
