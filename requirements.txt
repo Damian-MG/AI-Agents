@@ -1,0 +1,7 @@
+fastmcp
+ollama
+asyncio
+nest_asyncio
+llama-index
+llama-index-llms-ollama
+llama-index-tools-mcp
