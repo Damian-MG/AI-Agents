@@ -5,3 +5,4 @@ nest_asyncio==1.6.0
 llama-index==0.12.52
 llama-index-llms-ollama==0.6.2
 llama-index-tools-mcp==0.2.6
+google-generativeai==0.8.5
