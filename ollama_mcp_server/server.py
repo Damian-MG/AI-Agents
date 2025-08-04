@@ -1,9 +1,10 @@
 import argparse
-import requests
 import sqlite3
+import requests
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP('sqlite-damian')
+
 
 def init_db():
     conn = sqlite3.connect('demo.db')
@@ -18,6 +19,7 @@ def init_db():
     ''')
     conn.commit()
     return conn, cursor
+
 
 @mcp.tool()
 def add_data(query: str) -> bool:
@@ -57,6 +59,7 @@ def add_data(query: str) -> bool:
     finally:
         conn.close()
 
+
 @mcp.tool()
 def read_data(query: str = "SELECT * FROM people") -> list:
     """
@@ -92,6 +95,7 @@ def read_data(query: str = "SELECT * FROM people") -> list:
     finally:
         conn.close()
 
+
 @mcp.tool()
 def get_weather(city_name) -> str:
     """
@@ -100,7 +104,7 @@ def get_weather(city_name) -> str:
 
     Args:
         city_name (str): The name of the city to query (e.g., "Madrid").
-    
+
     Returns:
         str: A human-readable string containing:
             - The resolved city name and its coordinates.
@@ -149,6 +153,7 @@ def get_weather(city_name) -> str:
         f"- Wind speed: {windspeed} km/h\n"
         f"- Weather code: {weather_code}"
     )
+
 
 if __name__ == "__main__":
     # Start the server
