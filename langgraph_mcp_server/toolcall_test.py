@@ -17,7 +17,7 @@ def get_weather(city_name: str) -> str:
 
     Args:
         city_name (str): The name of the city to query (e.g., "Madrid").
-    
+
     Returns:
         str: A human-readable string containing:
             - The resolved city name and its coordinates.
@@ -31,7 +31,7 @@ def get_weather(city_name: str) -> str:
                   "language": "en",
                   "format": "json"}
 
-    geo_response = requests.get(geocode_url, params=geo_params)
+    geo_response = requests.get(geocode_url, params=geo_params, timeout=10)
     geo_data = geo_response.json()
 
     if "results" not in geo_data or len(geo_data["results"]) == 0:
@@ -48,7 +48,9 @@ def get_weather(city_name: str) -> str:
         "current_weather": True,
     }
 
-    weather_response = requests.get(weather_url, params=weather_params)
+    weather_response = requests.get(weather_url,
+                                    params=weather_params,
+                                    timeout=10)
     weather_data = weather_response.json()
 
     if "current_weather" not in weather_data:
