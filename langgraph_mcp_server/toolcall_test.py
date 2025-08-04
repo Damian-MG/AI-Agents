@@ -11,8 +11,9 @@ load_dotenv()
 @tool(description="Get the current weather in a given location.")
 def get_weather(city_name: str) -> str:
     """
-    Fetches current weather information for a given city using the Open-Meteo API.
-    In order to get the information the longitude and latitude of the city must be provided.
+    Fetches current weather information for a given city using the Open-Meteo
+    API. In order to get the information the longitude and latitude of the city
+    must be provided.
 
     Args:
         city_name (str): The name of the city to query (e.g., "Madrid").
