@@ -72,10 +72,13 @@ llm_with_tools = llm.bind_tools([get_weather])
 query = "What is the weather in Alicante?"
 ai_msg = llm_with_tools.invoke(query)
 
-print(ai_msg.tool_calls)
+tool_result = get_weather.invoke(ai_msg.tool_calls[0]["args"])
 
-tool_message = ToolMessage(
-    content=get_weather(*ai_msg.tool_calls[0]["args"]),
-    tool_call_id=ai_msg.tool_calls[0]["id"],
+tool_msg = ToolMessage(
+    content=tool_result,
+    tool_call_id=ai_msg.tool_calls[0]["id"]
 )
-llm_with_tools.invoke([ai_msg, tool_message])
+
+final_msg = llm_with_tools.invoke([query, ai_msg, tool_msg])
+
+print(final_msg.content)
