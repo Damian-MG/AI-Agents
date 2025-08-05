@@ -21,4 +21,3 @@ messages = [
 ]
 ai_msg = llm.invoke(messages)
 print(ai_msg.content)
-
