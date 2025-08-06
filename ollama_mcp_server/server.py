@@ -30,16 +30,16 @@ def add_data(query: str) -> bool:
         query (str): SQL INSERT query following this format:
             INSERT INTO people (name, age, profession)
             VALUES ('John Doe', 30, 'Engineer')
-        
+
     Schema:
         - name: Text field (required)
         - age: Integer field (required)
         - profession: Text field (required)
         Note: 'id' field is auto-generated
-    
+
     Returns:
         bool: True if data was added successfully, False otherwise
-    
+
     Example:
         >>> query = '''
         ... INSERT INTO people (name, age, profession)
@@ -66,21 +66,22 @@ def read_data(query: str = "SELECT * FROM people") -> list:
     Read data from the people table using a SQL SELECT query.
 
     Args:
-        query (str, optional): SQL SELECT query. Defaults to "SELECT * FROM people".
+        query (str, optional): SQL SELECT query. Defaults to:
+        "SELECT * FROM people".
             Examples:
             - "SELECT * FROM people"
             - "SELECT name, age FROM people WHERE age > 25"
             - "SELECT * FROM people ORDER BY age DESC"
-    
+
     Returns:
         list: List of tuples containing the query results.
               For default query, tuple format is (id, name, age, profession)
-    
+
     Example:
         >>> # Read all records
         >>> read_data()
         [(1, 'John Doe', 30, 'Engineer'), (2, 'Alice Smith', 25, 'Developer')]
-        
+
         >>> # Read with custom query
         >>> read_data("SELECT name, profession FROM people WHERE age < 30")
         [('Alice Smith', 'Developer')]
@@ -99,8 +100,9 @@ def read_data(query: str = "SELECT * FROM people") -> list:
 @mcp.tool()
 def get_weather(city_name) -> str:
     """
-    Fetches current weather information for a given city using the Open-Meteo API.
-    In order to get the information the longitude and latitude of the city must be provided.
+    Fetches current weather information for a given city using the Open-Meteo
+    API. In order to get the information the longitude and latitude of the city
+    must be provided.
 
     Args:
         city_name (str): The name of the city to query (e.g., "Madrid").
@@ -111,15 +113,18 @@ def get_weather(city_name) -> str:
             - The current temperature (°C).
             - The current wind speed (km/h).
             - The raw weather code (int).
-    
+
     Example:
         >>> # Get the weather in Madrid
-        >>> get_weather("Madrid")  
+        >>> get_weather("Madrid")
     """
     geocode_url = "https://geocoding-api.open-meteo.com/v1/search"
-    geo_params = {"name": city_name, "count": 1, "language": "en", "format": "json"}
+    geo_params = {"name": city_name,
+                  "count": 1,
+                  "language": "en",
+                  "format": "json"}
 
-    geo_response = requests.get(geocode_url, params=geo_params)
+    geo_response = requests.get(geocode_url, params=geo_params, timeout=10)
     geo_data = geo_response.json()
 
     if "results" not in geo_data or len(geo_data["results"]) == 0:
@@ -136,7 +141,9 @@ def get_weather(city_name) -> str:
         "current_weather": True,
     }
 
-    weather_response = requests.get(weather_url, params=weather_params)
+    weather_response = requests.get(weather_url,
+                                    params=weather_params,
+                                    timeout=10)
     weather_data = weather_response.json()
 
     if "current_weather" not in weather_data:
