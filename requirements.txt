@@ -7,5 +7,8 @@ llama-index==0.12.52
 llama-index-llms-ollama==0.6.2
 llama-index-tools-mcp==0.2.6
 google-generativeai==0.8.5
+langchain==0.3.27
+langchain-core==0.3.72
 langchain-google-genai==2.1.8
+langchain-google-vertexai==2.0.28
 langgraph==0.6.3
