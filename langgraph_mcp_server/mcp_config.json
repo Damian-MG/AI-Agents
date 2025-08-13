@@ -12,7 +12,7 @@
         },
         "time": {
             "command": "python",
-            "args": ["-m", "mcp_server_time"]
+            "args": ["-m", "${MCP_SERVER_TIME}"]
         }
     }
 }
