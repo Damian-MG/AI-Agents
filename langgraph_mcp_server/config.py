@@ -46,6 +46,6 @@ if not config_file.exists():
         f"mcp_config.json file {config_file} does not exist")
 
 with open(config_file, "r", encoding="utf-8") as f:
-    config = json.load(f)
+    conf = json.load(f)
 
-mcp_config = resolve_env_vars(config)
+mcp_config = resolve_env_vars(conf)
