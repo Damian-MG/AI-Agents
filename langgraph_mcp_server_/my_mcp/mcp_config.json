@@ -1,0 +1,17 @@
+{
+     "dataflow": {
+        "command": "python",
+        "args": ["/Users/damien/VisualStudio Workspace/AI-Agents/langgraph_mcp_server/local_mcp_servers/dataflow.py"],
+        "transport": "stdio"
+    },
+    "weather": {
+        "command": "python",
+        "args": ["/Users/damien/VisualStudio Workspace/AI-Agents/langgraph_mcp_server/local_mcp_servers/weather.py"],
+        "transport": "stdio"
+    },
+    "time": {      
+        "command": "python",
+        "args": ["-m", "${MCP_SERVER_TIME}"],
+        "transport": "sse"
+    }
+}
