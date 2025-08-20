@@ -1,0 +1,1 @@
+Run start_local_mcps.py before the client.
