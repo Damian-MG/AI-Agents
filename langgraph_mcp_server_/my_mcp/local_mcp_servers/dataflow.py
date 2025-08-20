@@ -1,8 +1,8 @@
 import os
 import subprocess
+from typing import Optional
 import pandas as pd
 import duckdb
-from typing import Optional
 from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 

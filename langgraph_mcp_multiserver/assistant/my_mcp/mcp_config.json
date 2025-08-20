@@ -1,0 +1,18 @@
+{
+    "math": {
+        "command": "python",
+        "args": ["/Users/damien/VisualStudio Workspace/AI-Agents/langgraph_mcp_multiserver/pepe/math_server.py"],
+        "transport": "stdio"
+    },
+    "weather": {
+        "command": "python",
+        "args": ["/Users/damien/VisualStudio Workspace/AI-Agents/langgraph_mcp_multiserver/pepe/weather_server.py"],
+        "transport": "stdio"
+    },
+     "dataflow": {
+        "command": "python",
+        "args": ["/Users/damien/VisualStudio Workspace/AI-Agents/langgraph_mcp_server/local_mcp_servers/dataflow.py"],
+        "transport": "stdio"
+    }
+}
+

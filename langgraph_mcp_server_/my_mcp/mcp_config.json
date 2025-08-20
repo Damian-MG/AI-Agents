@@ -12,6 +12,6 @@
     "time": {      
         "command": "python",
         "args": ["-m", "${MCP_SERVER_TIME}"],
-        "transport": "sse"
+        "transport": "stdio"
     }
 }
